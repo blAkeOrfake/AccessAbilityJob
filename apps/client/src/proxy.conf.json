@@ -1,0 +1,8 @@
+{
+	"/api": {
+	  "target": "http://localhost:3000", // NestJS server URL
+	  "secure": false,
+	  "logLevel": "debug",
+	  "changeOrigin": true
+	}
+  }

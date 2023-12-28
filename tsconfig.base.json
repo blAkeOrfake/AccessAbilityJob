@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@access-ability-job/offers": ["libs/offers/src/index.ts"],
+      "@access-ability-job/users": ["libs/users/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
