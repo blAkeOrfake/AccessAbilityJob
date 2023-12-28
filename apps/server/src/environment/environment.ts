@@ -8,8 +8,8 @@ export const env: Partial<IEnvironment> = {
   database: {
     host: 'localhost',
     port: 5432,
-    database: 'postgres',
+    database: 'jobboard',
     username: 'postgres',
-    password: 'password',
+    password: 'postgres',
   },
 };
