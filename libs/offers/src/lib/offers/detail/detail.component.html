@@ -1,0 +1,99 @@
+<header *ngIf="offer" class="items-stretch bg-white flex w-full flex-col justify-center px-16 py-12 max-md:max-w-full max-md:px-5">
+	<section class="mt-16 mb-10 max-md:max-w-full max-md:mr-1 max-md:mt-10">
+	  <div class="flex flex-row items-stretch gap-5 max-md:flex-col max-md:items-stretch max-md:gap-0">
+		<div class="flex flex-col items-stretch w-[62%] max-md:w-full max-md:ml-0">
+		  <div
+			class="items-stretch flex grow flex-col max-md:max-w-full max-md:mt-10"
+		  >
+			<h1 class="text-black text-6xl font-bold leading-[67.2px] max-md:max-w-full max-md:text-4xl">
+				{{ offer.title }}
+			</h1>
+			<p class="text-black text-lg leading-7 mt-5 max-md:max-w-full">
+			  Exciting opportunity for you to join our
+			  innovative team.
+			</p>
+			<div class="items-stretch flex gap-2 mt-6 pr-20 max-md:max-w-full max-md:flex-wrap max-md:pr-5" >
+			  <div class="text-black text-sm font-semibold leading-5 whitespace-nowrap items-stretch bg-zinc-100 grow justify-center px-2 py-1" > Technology </div>
+			  <div class="text-black text-sm font-semibold leading-5 whitespace-nowrap items-stretch bg-zinc-100 grow justify-center px-2 py-1" > Development </div>
+			  <div class="text-black text-sm font-semibold leading-5 whitespace-nowrap items-stretch bg-zinc-100 grow justify-center px-2 py-1" > Opportunity </div>
+			</div>
+		  </div>
+		</div>
+		<div class="flex flex-col items-stretch w-[38%] ml-5 max-md:w-full max-md:ml-0">
+		  <div class="items-stretch flex flex-col max-md:max-w-full max-md:mt-10">
+			<div class="items-stretch flex justify-between gap-5 max-md:max-w-full max-md:flex-wrap">
+			  <div class="items-stretch flex grow basis-[0%] flex-col">
+				<div class="text-black text-xl font-bold leading-7 whitespace-nowrap">
+				  Company
+				</div>
+				<div class="text-black text-base leading-6 whitespace-nowrap mt-2">
+				  {{ offer.company }}
+				</div>
+			  </div>
+			  <div class="items-stretch flex grow basis-[0%] flex-col">
+				<div class="text-black text-xl font-bold leading-7 whitespace-nowrap">
+				  Location
+				</div>
+				<div class="text-black text-base leading-6 whitespace-nowrap mt-2">
+					{{ offer.location }}
+				</div>
+			  </div>
+			</div>
+			<div class="items-stretch flex justify-between gap-5 mt-8 max-md:max-w-full max-md:flex-wrap">
+			  <div class="items-stretch flex grow basis-[0%] flex-col">
+				<div class="text-black text-xl font-bold leading-7 whitespace-nowrap">
+				  Salary
+				</div>
+				<div class="text-black text-base leading-6 whitespace-nowrap mt-2">
+				  ${{ offer.salaryRange?.min }} - ${{ offer.salaryRange?.max }}
+				</div>
+			  </div>
+			  <div class="items-stretch flex grow basis-[0%] flex-col">
+				<div class="text-black text-xl font-bold leading-7 whitespace-nowrap">
+				  Accommodation
+				</div>
+				<div class="text-black text-base leading-6 underline whitespace-nowrap mt-2">
+				  Yes
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</section>
+  </header>
+  
+  <div class="items-center bg-white flex w-full flex-col px-16 py-12 max-md:max-w-full max-md:px-5">
+	<header class="text-black text-5xl font-bold leading-[57.6px] self-center mt-16 max-md:max-w-full max-md:text-4xl max-md:mt-10">
+	  Job Description Heading
+	</header>
+	<div class="self-center text-black text-base leading-6 w-[768px] max-w-full mt-6">
+	  Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id scelerisque est ultricies ultricies.
+	  Duis est sit sed leo nisl, blandit elit sagittis. Quisque tristique consequat quam sed. Nisl at scelerisque amet nulla purus habitasse.
+	</div>
+	<div class="self-center text-black text-base leading-6 w-[768px] max-w-full mt-4">
+	  Nunc sed faucibus bibendum feugiat sed interdum. Ipsum egestas condimentum mi massa. In tincidunt pharetra consectetur sed duis facilisis metus. Etiam egestas in nec sed et. Quis lobortis at sit dictum eget nibh tortor commodo cursus.
+	</div>
+	<div class="self-center text-black text-base leading-6 w-[768px] max-w-full mt-4">
+	  Odio felis sagittis, morbi feugiat tortor vitae feugiat fusce aliquet. Nam elementum urna nisi aliquet erat dolor enim. Ornare id morbi eget ipsum. Aliquam senectus neque ut id eget consectetur dictum. Donec posuere pharetra odio consequat scelerisque et, nunc tortor. Nulla adipiscing erat a erat. Condimentum lorem posuere gravida enim posuere cursus diam.
+	</div>
+	<img
+	  loading="lazy"
+	  srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/d7fa4f3a68eaeba4ad6b5be86a3cf4a38e7b197b88567b2671cdf56d7de036e4?apiKey=9ab81557e95a4d01afa409e418116847&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/d7fa4f3a68eaeba4ad6b5be86a3cf4a38e7b197b88567b2671cdf56d7de036e4?apiKey=9ab81557e95a4d01afa409e418116847&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/d7fa4f3a68eaeba4ad6b5be86a3cf4a38e7b197b88567b2671cdf56d7de036e4?apiKey=9ab81557e95a4d01afa409e418116847&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/d7fa4f3a68eaeba4ad6b5be86a3cf4a38e7b197b88567b2671cdf56d7de036e4?apiKey=9ab81557e95a4d01afa409e418116847&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/d7fa4f3a68eaeba4ad6b5be86a3cf4a38e7b197b88567b2671cdf56d7de036e4?apiKey=9ab81557e95a4d01afa409e418116847&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/d7fa4f3a68eaeba4ad6b5be86a3cf4a38e7b197b88567b2671cdf56d7de036e4?apiKey=9ab81557e95a4d01afa409e418116847&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/d7fa4f3a68eaeba4ad6b5be86a3cf4a38e7b197b88567b2671cdf56d7de036e4?apiKey=9ab81557e95a4d01afa409e418116847&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/d7fa4f3a68eaeba4ad6b5be86a3cf4a38e7b197b88567b2671cdf56d7de036e4?apiKey=9ab81557e95a4d01afa409e418116847&"class="aspect-[1.78] object-contain object-center w-full self-stretch overflow-hidden mt-20 mb-10 max-md:max-w-full max-md:mt-10"
+	/>
+</div>
+
+<div>
+	<header class="header items-stretch bg-white flex w-full flex-col justify-center px-16 py-12 max-md:max-w-full max-md:px-5">
+		<section class="section items-stretch flex w-full justify-between gap-5 mt-16 mb-10 max-md:max-w-full max-md:flex-wrap max-md:mr-1 max-md:mt-10">
+		  <div class="items-stretch flex flex-col max-md:max-w-full">
+			<h1 class="text-black text-4xl font-bold leading-10 max-md:max-w-full">Apply for this job opportunity</h1>
+			<p class="text-black text-lg leading-7 mt-6 max-md:max-w-full">Explore the job requirements and qualifications</p>
+		  </div>
+		  <div class="items-stretch self-center flex gap-4 my-auto">
+			<button class="text-white text-base leading-6 whitespace-nowrap justify-center items-stretch border bg-black grow px-6 py-3 border-solid border-black max-md:px-5">Apply</button>
+			<button class="text-black text-base leading-6 whitespace-nowrap justify-center items-stretch border grow px-6 py-3 border-solid border-black max-md:px-5">Save</button>
+		  </div>
+		</section>
+	  </header>
+</div>

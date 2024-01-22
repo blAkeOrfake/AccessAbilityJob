@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
 import { ApiService } from './services/api.service';
-import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from './shared/shared.module';
 
 @Component({
   standalone: true,
-  imports: [NxWelcomeComponent, HttpClientModule, RouterModule],
-  providers: [ApiService],
+  imports: [SharedModule],
+  // providers: [ApiService],
   selector: 'access-ability-job-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

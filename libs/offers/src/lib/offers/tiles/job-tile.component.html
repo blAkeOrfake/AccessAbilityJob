@@ -1,0 +1,18 @@
+<header class="items-stretch border bg-white flex grow flex-col w-full pt-6 pb-11 px-6 border-solid border-black max-md:max-w-full max-md:mt-5 max-md:px-5">
+	<div class="justify-between items-stretch flex gap-5 pr-2">
+	  <img [src]="logoSrc" class="aspect-square object-contain object-center w-[72px] overflow-hidden shrink-0 max-w-full" />
+	  <img [src]="iconSrc" class="aspect-square object-contain object-center w-6 overflow-hidden shrink-0 max-w-full mt-2 self-start" />
+	</div>
+	<h1 class="text-black text-xl font-bold leading-7 mt-6">{{ jobTitle }}</h1>
+	<div class="items-stretch flex gap-2">
+	  <div class="text-black text-sm leading-5 my-auto">{{ location }}</div>
+	  <div class="text-black text-lg leading-7">•</div>
+	  <div class="text-black text-sm leading-5 my-auto">{{ employmentType }}</div>
+	  <div class="text-black text-lg leading-7">•</div>
+	  <div class="text-black text-sm leading-5 my-auto">{{ workMode }}</div>
+	</div>
+	<div class="text-black text-sm leading-5 mt-4">{{ description }}</div>
+	<button (click)="handleButtonClick()" class="text-black text-base leading-6 whitespace-nowrap justify-center items-center border mt-8 px-16 py-2 border-solid border-black max-md:px-5">
+	  View details
+	</button>
+</header>

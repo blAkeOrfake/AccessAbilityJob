@@ -1,5 +1,8 @@
 import { Route } from '@angular/router';
 import { NxWelcomeComponent } from './nx-welcome.component';
+import { LoginComponent } from './access/login/login.component';
+import { AddOfferComponent } from './offers/add-offer/add-offer.component';
+import { JobDetailComponent } from '@access-ability-job/offers';
 
 export const appRoutes: Route[] = [
 	{
@@ -8,10 +11,23 @@ export const appRoutes: Route[] = [
 	  pathMatch: 'full',
 	},
 	{
+		path: 'login',
+		loadComponent: () =>
+		  import('./access/login/login.component').then((m) => m.LoginComponent),
+	},
+	{
 	  path: 'offers',
 	  loadComponent: () =>
-		import('@access-ability-job/offers').then((m) => m.OffersComponent),
+		import('@access-ability-job/offers').then((m) => m.OffersComponent)
 	},
+	{
+		path: 'offers/detail/:id',
+		component: JobDetailComponent
+	},
+	{
+		path: 'offers/add',
+		component: AddOfferComponent
+	  },
 	{
 		path: 'users',
 		loadComponent: () =>

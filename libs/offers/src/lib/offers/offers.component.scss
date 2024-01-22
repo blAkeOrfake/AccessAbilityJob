@@ -1,0 +1,13 @@
+.offers-list-component {
+	background-color: #FAF9F6;
+}
+.offers-list-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	// margin: 0 -15px;
+	gap: 24px;
+
+		mat-card {
+		max-width: 500px;
+	}
+}

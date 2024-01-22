@@ -1,0 +1,192 @@
+<header class="justify-center items-stretch bg-white flex w-full flex-col px-16 py-4 border-b-black border-b border-solid max-md:max-w-full max-md:px-5">
+		<div class="justify-between items-stretch flex w-full gap-5 max-md:max-w-full max-md:flex-wrap max-md:mr-1">
+		  <img
+			loading="lazy"
+			src="https://cdn.builder.io/api/v1/image/assets/TEMP/33878a691ad1d38da05bf1019f0d0b6c5d7216b0a17a45a26724bdec6052add1?apiKey=9ab81557e95a4d01afa409e418116847&"
+			class="aspect-[2.33] object-contain object-center w-[63px] overflow-hidden self-center shrink-0 max-w-full my-auto"
+		  />
+		  <div class="items-stretch self-center flex justify-between gap-5 my-auto max-md:max-w-full max-md:flex-wrap">
+			<div class="text-black text-base leading-6 grow whitespace-nowrap" [routerLink]="['/offers']" routerLinkActive="router-link-active">Find Jobs</div>
+			<div class="text-black text-base leading-6">Post Resume</div>
+			<div class="text-black text-base leading-6">Career Resources</div>
+			<div class="justify-between items-stretch flex gap-1">
+			  <div class="text-black text-base leading-6 grow whitespace-nowrap">More</div>
+			  <img
+				loading="lazy"
+				src="https://cdn.builder.io/api/v1/image/assets/TEMP/d42498ff3ac90333296a35e76ebdf6cd09c5bee1af0ca7d0963c6e98cb722422?apiKey=9ab81557e95a4d01afa409e418116847&"
+				class="aspect-square object-contain object-center w-6 overflow-hidden shrink-0 max-w-full"
+			  />
+			</div>
+		  </div>
+		  <button
+			class="text-white text-base leading-6 whitespace-nowrap justify-center items-stretch border bg-black px-5 py-2 border-solid border-black"
+			type="button"
+			aria-label="Sign Up"
+			(click)="handleClick()"
+		  >
+			Sign Up
+		  </button>
+		</div>
+	  </header>
+  <!-- <div class="items-stretch bg-white flex flex-col">
+	
+
+	<div
+	  class="justify-center bg-black bg-opacity-30 flex w-full flex-col pl-20 pr-4 pt-4 pb-12 items-end max-md:max-w-full max-md:pl-5"
+	>
+	  <img
+		loading="lazy"
+		src="https://cdn.builder.io/api/v1/image/assets/TEMP/1eb4a6b86f28a5861a1af794f8928e5fe3ab3c2e020eaef15bbccfee08948ca8?apiKey=9ab81557e95a4d01afa409e418116847&"
+		class="aspect-square object-contain object-center w-8 overflow-hidden max-w-full"
+	  />
+	  <div
+		class="items-center bg-white self-center flex w-full max-w-[1088px] flex-col mt-4 mb-3.5 px-20 py-12 max-md:max-w-full max-md:px-5"
+	  >
+		<div
+		  class="self-stretch text-black text-center text-5xl font-bold leading-[57.6px] mt-3.5 mx-3 max-md:max-w-full max-md:text-4xl max-md:mr-2.5"
+		>
+		  Log In / Signup
+		</div>
+		<div
+		  class="self-stretch text-black text-center text-lg leading-7 mt-4 mx-3 max-md:max-w-full max-md:mr-2.5"
+		>
+		  Explore the job requirements and qualifications
+		</div>
+		<div
+		  class="self-stretch text-black text-base leading-6 mt-12 mx-3 max-md:max-w-full max-md:mr-2.5 max-md:mt-10"
+		>
+		  Username
+		</div>
+		<div
+		  class="text-neutral-600 text-base leading-6 items-stretch self-stretch border bg-white justify-center mt-2 mx-3 p-3 border-solid border-black max-md:max-w-full max-md:mr-2.5"
+		>
+		  Placeholder
+		</div>
+		<div
+		  class="self-stretch text-black text-base leading-6 mt-6 mx-3 max-md:max-w-full max-md:mr-2.5"
+		>
+		  Password
+		</div>
+		<div
+		  class="text-neutral-600 text-base leading-6 items-stretch self-stretch border bg-white justify-center mt-2 mx-3 p-3 border-solid border-black max-md:max-w-full max-md:mr-2.5"
+		>
+		  Placeholder
+		</div>
+		<div
+		  class="self-stretch text-black text-base leading-6 mt-6 mx-3 max-md:max-w-full max-md:mr-2.5"
+		>
+		  Message
+		</div>
+		<div
+		  class="text-neutral-600 text-base leading-6 items-stretch self-stretch border bg-white mt-2 mx-3 pt-3 pb-28 px-3 border-solid border-black max-md:max-w-full max-md:mr-2.5 max-md:pb-10"
+		>
+		  Type your message...
+		</div>
+		<div
+		  class="self-stretch flex justify-between gap-2 mt-6 mx-3 pr-20 pb-3.5 items-start max-md:max-w-full max-md:flex-wrap max-md:mr-2.5 max-md:pr-5"
+		>
+		  <div
+			class="border bg-white flex w-[18px] shrink-0 h-[18px] flex-col border-solid border-black"
+		  ></div>
+		  <div class="text-black text-base leading-6">Checkbox</div>
+		</div>
+		<div
+		  class="text-white text-base leading-6 justify-center items-stretch border bg-black self-center mt-6 mb-3.5 px-7 py-3 border-solid border-black max-md:px-5"
+		>
+		  Button
+		</div>
+	  </div>
+	</div>
+	<div
+	  class="items-center bg-white flex w-full flex-col px-16 py-12 max-md:max-w-full max-md:px-5"
+	>
+	  <div
+		class="items-stretch self-stretch flex w-full justify-between gap-5 mt-8 max-md:max-w-full max-md:flex-wrap"
+	  >
+		<img
+		  loading="lazy"
+		  src="https://cdn.builder.io/api/v1/image/assets/TEMP/39009e9b43f35d2f8a10c23c8273488f5af346c43292f833894777c8059a6a4a?apiKey=9ab81557e95a4d01afa409e418116847&"
+		  class="aspect-[2.33] object-contain object-center w-[63px] overflow-hidden shrink-0 max-w-full"
+		/>
+		<div
+		  class="self-center flex items-stretch justify-between gap-5 my-auto max-md:max-w-full max-md:flex-wrap"
+		>
+		  <div
+			class="items-stretch flex justify-between gap-5 max-md:max-w-full max-md:flex-wrap"
+		  >
+			<div
+			  class="text-black text-base font-semibold leading-6 grow whitespace-nowrap"
+			>
+			  Find Jobs
+			</div>
+			<div class="text-black text-base font-semibold leading-6">
+			  Job Listings
+			</div>
+			<div class="text-black text-base font-semibold leading-6">
+			  Apply Now
+			</div>
+			<div class="text-black text-base font-semibold leading-6">
+			  Contact Us
+			</div>
+			<div
+			  class="text-black text-base font-semibold leading-6 grow whitespace-nowrap"
+			>
+			  FAQs
+			</div>
+		  </div>
+		  <div class="justify-end items-stretch flex gap-3 pl-20 max-md:pl-5">
+			<img
+			  loading="lazy"
+			  src="https://cdn.builder.io/api/v1/image/assets/TEMP/7cb14ad2a93b6b3a5f6779774b00ea9979e4593abdd26f850601973b3da4ab21?apiKey=9ab81557e95a4d01afa409e418116847&"
+			  class="aspect-square object-contain object-center w-6 overflow-hidden shrink-0 max-w-full"
+			/>
+			<img
+			  loading="lazy"
+			  src="https://cdn.builder.io/api/v1/image/assets/TEMP/0ea003e49fd93659e1550be5605e2cfa00850629e05d9c9a3ab4d9a5231c7d49?apiKey=9ab81557e95a4d01afa409e418116847&"
+			  class="aspect-square object-contain object-center w-6 overflow-hidden shrink-0 max-w-full"
+			/>
+			<img
+			  loading="lazy"
+			  src="https://cdn.builder.io/api/v1/image/assets/TEMP/c526b5f36ed774814623889a298073f6b03a54ab7a1d44d33a212340c19561f9?apiKey=9ab81557e95a4d01afa409e418116847&"
+			  class="aspect-square object-contain object-center w-6 overflow-hidden shrink-0 max-w-full"
+			/>
+			<img
+			  loading="lazy"
+			  src="https://cdn.builder.io/api/v1/image/assets/TEMP/c7dc4208c3c955b42542a250641d3ad0c2aa7f782e1cc8e26b90e21427e49696?apiKey=9ab81557e95a4d01afa409e418116847&"
+			  class="aspect-square object-contain object-center w-6 overflow-hidden shrink-0 max-w-full"
+			/>
+			<img
+			  loading="lazy"
+			  src="https://cdn.builder.io/api/v1/image/assets/TEMP/3f4318eae322873ca0f4ed75b8aa34d82d91a5a1b9ec6bbd882bc86ed83a6cc2?apiKey=9ab81557e95a4d01afa409e418116847&"
+			  class="aspect-square object-contain object-center w-6 overflow-hidden shrink-0 max-w-full"
+			/>
+		  </div>
+		</div>
+	  </div>
+	  <div
+		class="self-stretch bg-black flex shrink-0 h-px flex-col mt-20 max-md:max-w-full max-md:mt-10"
+	  ></div>
+	  <div
+		class="items-stretch flex justify-between gap-5 mt-8 mb-8 max-md:max-w-full max-md:flex-wrap"
+	  >
+		<div class="text-black text-sm leading-5 grow whitespace-nowrap">
+		  © 2023 JobAbility. All rights reserved.
+		</div>
+		<div class="items-stretch flex justify-between gap-5">
+		  <div
+			class="text-black text-sm leading-5 underline grow whitespace-nowrap"
+		  >
+			Privacy Policy
+		  </div>
+		  <div class="text-black text-sm leading-5 underline">
+			Terms and Conditions
+		  </div>
+		  <div
+			class="text-black text-sm leading-5 underline grow whitespace-nowrap"
+		  >
+			Cookie Policy
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </div> -->
