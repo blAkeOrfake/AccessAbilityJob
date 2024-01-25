@@ -70,7 +70,7 @@
 			</div>
 			<div>
 				<mat-chip-set>
-					<mat-chip-row *ngFor="let requirement of offer?.requirements" color="accent">
+					<mat-chip-row *ngFor="let requirement of offer?.requirements" color="primary" [highlighted]="true">
 						{{ requirement }}
 					</mat-chip-row>
 				  </mat-chip-set>
@@ -94,7 +94,7 @@
 			</div>
 			<div>
 				<mat-chip-set>
-					<mat-chip-row *ngFor="let accessibilityFeature of offer?.accessibilityFeatures" color="#0c065a">
+					<mat-chip-row *ngFor="let accessibilityFeature of offer?.accessibilityFeatures" color="accent" [highlighted]="true">
 						{{ accessibilityFeature }}
 					</mat-chip-row>
 				  </mat-chip-set>
@@ -105,7 +105,7 @@
 </div>
   <div class="items-center bg-white flex w-full flex-col px-16 py-12 max-md:max-w-full max-md:px-5">
 	<header class="text-black text-5xl font-bold leading-[57.6px] self-center mt-16 max-md:max-w-full max-md:text-4xl max-md:mt-10">
-	  Few words about position
+	  About position
 	</header>
 	<div class="self-center text-black text-base leading-6 w-[768px] max-w-full mt-6">
 	  {{ offer?.description }}

@@ -1,5 +1,5 @@
-<header class="justify-center bg-black bg-opacity-30 flex w-full flex-col pl-20 pr-20 pt-8 pb-8 max-md:max-w-full max-md:pl-5">
-	<form [formGroup]="jobOfferForm" class="space-y-4" (ngSubmit)="onSubmit()">
+<header class="justify-center bg-black bg-opacity-10 flex w-full flex-col pl-20 pr-20 pt-8 pb-8 max-md:max-w-full max-md:pl-5">
+	<form [formGroup]="jobOfferForm" class="space-y-4">
 
 		<!-- Job Title -->
 		<div class="mb-4">
@@ -107,7 +107,7 @@
 	  
 		<!-- Submit Button -->
 		<div class="flex items-center justify-end">
-		  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">
+		  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="onSubmit()">
 			Submit
 		  </button>
 		</div>

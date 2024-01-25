@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { AsyncPipe, CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from '../services/api.service';
@@ -17,12 +17,19 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { PaginatorModule } from 'primeng/paginator';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
+import { ChipFiltersComponent } from './chip-filters/chip-filters.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 
 
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent],
+  declarations: [
+    HeaderComponent,
+    FooterComponent,
+    ChipFiltersComponent
+  ],
   imports: [
     CommonModule,
     RouterModule,
@@ -39,7 +46,10 @@ import { InputTextModule } from 'primeng/inputtext';
     MatSnackBarModule,
     PaginatorModule,
     DropdownModule,
-    InputTextModule
+    InputTextModule,
+    MatFormFieldModule,
+    MatAutocompleteModule,
+    AsyncPipe,
   ],
   providers: [ApiService, FeOfferService],
   exports: [
@@ -56,10 +66,14 @@ import { InputTextModule } from 'primeng/inputtext';
     MatDividerModule,
     HeaderComponent,
     FooterComponent,
+    ChipFiltersComponent,
     MatChipsModule,
     PaginatorModule,
     DropdownModule,
-    InputTextModule
+    InputTextModule,
+    MatFormFieldModule,
+    MatAutocompleteModule,
+    AsyncPipe,
   ],
 })
 export class SharedModule {}
