@@ -19,6 +19,7 @@ jobs:
       main-branch-name: main
       number-of-agents: 3
       init-commands: |
+        npm install
         npx nx-cloud start-ci-run --stop-agents-after="build" --agent-count=3
       parallel-commands: |
         npx nx-cloud record -- npx nx format:check
