@@ -62,21 +62,60 @@
 	  </div>
 	</section>
   </header>
-  
+<div>
+	<div class="header items-stretch bg-white flex w-full flex-col justify-center px-16 py-12 max-md:max-w-full max-md:px-5">
+		<div class="pb-5">
+			<div class="text-black text-xl font-bold leading-7 whitespace-nowrap pb-2">
+				Requirements:
+			</div>
+			<div>
+				<mat-chip-set>
+					<mat-chip-row *ngFor="let requirement of offer?.requirements" color="accent">
+						{{ requirement }}
+					</mat-chip-row>
+				  </mat-chip-set>
+			</div>
+		</div>
+		<div class="pb-5">
+			<div class="text-black text-xl font-bold leading-7 whitespace-nowrap pb-2">
+				Responsibilities:
+			</div>
+			<div>
+				<mat-chip-set>
+					<mat-chip-row *ngFor="let responsibility of offer?.responsibilities" color="accent">
+						{{ responsibility }}
+					</mat-chip-row>
+				  </mat-chip-set>
+			</div>
+		</div>
+		<div>
+			<div class="text-black text-xl font-bold leading-7 whitespace-nowrap pb-2">
+				Accessibility Features:
+			</div>
+			<div>
+				<mat-chip-set>
+					<mat-chip-row *ngFor="let accessibilityFeature of offer?.accessibilityFeatures" color="#0c065a">
+						{{ accessibilityFeature }}
+					</mat-chip-row>
+				  </mat-chip-set>
+			</div>
+	
+
+	</div>
+</div>
   <div class="items-center bg-white flex w-full flex-col px-16 py-12 max-md:max-w-full max-md:px-5">
 	<header class="text-black text-5xl font-bold leading-[57.6px] self-center mt-16 max-md:max-w-full max-md:text-4xl max-md:mt-10">
-	  Job Description Heading
+	  Few words about position
 	</header>
 	<div class="self-center text-black text-base leading-6 w-[768px] max-w-full mt-6">
-	  Morbi sed imperdiet in ipsum, adipiscing elit dui lectus. Tellus id scelerisque est ultricies ultricies.
-	  Duis est sit sed leo nisl, blandit elit sagittis. Quisque tristique consequat quam sed. Nisl at scelerisque amet nulla purus habitasse.
+	  {{ offer?.description }}
 	</div>
 	<div class="self-center text-black text-base leading-6 w-[768px] max-w-full mt-4">
 	  Nunc sed faucibus bibendum feugiat sed interdum. Ipsum egestas condimentum mi massa. In tincidunt pharetra consectetur sed duis facilisis metus. Etiam egestas in nec sed et. Quis lobortis at sit dictum eget nibh tortor commodo cursus.
 	</div>
-	<div class="self-center text-black text-base leading-6 w-[768px] max-w-full mt-4">
+	<!-- <div class="self-center text-black text-base leading-6 w-[768px] max-w-full mt-4">
 	  Odio felis sagittis, morbi feugiat tortor vitae feugiat fusce aliquet. Nam elementum urna nisi aliquet erat dolor enim. Ornare id morbi eget ipsum. Aliquam senectus neque ut id eget consectetur dictum. Donec posuere pharetra odio consequat scelerisque et, nunc tortor. Nulla adipiscing erat a erat. Condimentum lorem posuere gravida enim posuere cursus diam.
-	</div>
+	</div> -->
 	<img
 	  loading="lazy"
 	  srcset="https://cdn.builder.io/api/v1/image/assets/TEMP/d7fa4f3a68eaeba4ad6b5be86a3cf4a38e7b197b88567b2671cdf56d7de036e4?apiKey=9ab81557e95a4d01afa409e418116847&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/d7fa4f3a68eaeba4ad6b5be86a3cf4a38e7b197b88567b2671cdf56d7de036e4?apiKey=9ab81557e95a4d01afa409e418116847&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/d7fa4f3a68eaeba4ad6b5be86a3cf4a38e7b197b88567b2671cdf56d7de036e4?apiKey=9ab81557e95a4d01afa409e418116847&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/d7fa4f3a68eaeba4ad6b5be86a3cf4a38e7b197b88567b2671cdf56d7de036e4?apiKey=9ab81557e95a4d01afa409e418116847&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/d7fa4f3a68eaeba4ad6b5be86a3cf4a38e7b197b88567b2671cdf56d7de036e4?apiKey=9ab81557e95a4d01afa409e418116847&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/d7fa4f3a68eaeba4ad6b5be86a3cf4a38e7b197b88567b2671cdf56d7de036e4?apiKey=9ab81557e95a4d01afa409e418116847&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/d7fa4f3a68eaeba4ad6b5be86a3cf4a38e7b197b88567b2671cdf56d7de036e4?apiKey=9ab81557e95a4d01afa409e418116847&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/d7fa4f3a68eaeba4ad6b5be86a3cf4a38e7b197b88567b2671cdf56d7de036e4?apiKey=9ab81557e95a4d01afa409e418116847&"class="aspect-[1.78] object-contain object-center w-full self-stretch overflow-hidden mt-20 mb-10 max-md:max-w-full max-md:mt-10"
@@ -92,7 +131,7 @@
 		  </div>
 		  <div class="items-stretch self-center flex gap-4 my-auto">
 			<button class="text-white text-base leading-6 whitespace-nowrap justify-center items-stretch border bg-black grow px-6 py-3 border-solid border-black max-md:px-5">Apply</button>
-			<button class="text-black text-base leading-6 whitespace-nowrap justify-center items-stretch border grow px-6 py-3 border-solid border-black max-md:px-5">Save</button>
+			<button class="text-black text-base leading-6 whitespace-nowrap justify-center items-stretch border grow px-6 py-3 border-solid border-black max-md:px-5">Add to favourites ❤️</button>
 		  </div>
 		</section>
 	  </header>

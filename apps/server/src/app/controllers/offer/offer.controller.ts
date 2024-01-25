@@ -11,6 +11,11 @@ export class OfferController {
     return this.jobOfferService.createJobOffer(jobOfferDto);
   }
 
+  @Post('sample')
+  createSampleJobOffers(): void {
+    return this.jobOfferService.createSampleJobOffers();
+  }
+
   @Get()
   getAllJobOffers(): JobOffer[] {
     return this.jobOfferService.getAllJobOffers();
@@ -29,5 +34,10 @@ export class OfferController {
   @Delete(':id')
   deleteJobOffer(@Param('id') id: string): void {
     return this.jobOfferService.deleteJobOffer(id);
+  }
+
+  @Delete('all')
+  deleteAllJobOffers(): void {
+    return this.jobOfferService.deleteAllJobOffers();
   }
 }

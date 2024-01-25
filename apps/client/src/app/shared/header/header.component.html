@@ -1,16 +1,16 @@
-<header class="justify-center items-stretch bg-white flex w-full flex-col px-16 py-4 border-b-black border-b border-solid max-md:max-w-full max-md:px-5">
+<header class="justify-center items-stretch bg-white dark:bg-gray-800 flex w-full flex-col px-16 py-4 border-b-black dark:border-b-white border-b border-solid max-md:max-w-full max-md:px-5">
 		<div class="justify-between items-stretch flex w-full gap-5 max-md:max-w-full max-md:flex-wrap max-md:mr-1">
 		  <img
 			loading="lazy"
-			src="https://cdn.builder.io/api/v1/image/assets/TEMP/33878a691ad1d38da05bf1019f0d0b6c5d7216b0a17a45a26724bdec6052add1?apiKey=9ab81557e95a4d01afa409e418116847&"
+			src="../../../assets/logo_png.png"
 			class="aspect-[2.33] object-contain object-center w-[63px] overflow-hidden self-center shrink-0 max-w-full my-auto"
 		  />
 		  <div class="items-stretch self-center flex justify-between gap-5 my-auto max-md:max-w-full max-md:flex-wrap">
-			<div class="text-black text-base leading-6 grow whitespace-nowrap" [routerLink]="['/offers']" routerLinkActive="router-link-active">Find Jobs</div>
-			<div class="text-black text-base leading-6">Post Resume</div>
-			<div class="text-black text-base leading-6">Career Resources</div>
+			<div class="text-black dark:text-white text-base leading-6 grow whitespace-nowrap" [routerLink]="['/offers']" routerLinkActive="router-link-active">Find Jobs</div>
+			<div class="text-black dark:text-white text-base leading-6">Post Resume</div>
+			<div class="text-black dark:text-white text-base leading-6">Career Resources</div>
 			<div class="justify-between items-stretch flex gap-1">
-			  <div class="text-black text-base leading-6 grow whitespace-nowrap">More</div>
+			  <div class="text-black dark:text-white text-base leading-6 grow whitespace-nowrap">More</div>
 			  <img
 				loading="lazy"
 				src="https://cdn.builder.io/api/v1/image/assets/TEMP/d42498ff3ac90333296a35e76ebdf6cd09c5bee1af0ca7d0963c6e98cb722422?apiKey=9ab81557e95a4d01afa409e418116847&"
@@ -19,13 +19,17 @@
 			</div>
 		  </div>
 		  <button
-			class="text-white text-base leading-6 whitespace-nowrap justify-center items-stretch border bg-black px-5 py-2 border-solid border-black"
+			class="text-white dark:text-black text-base leading-6 whitespace-nowrap justify-center items-stretch border bg-black dark:bg-white px-5 py-2 border-solid border-black"
 			type="button"
 			aria-label="Sign Up"
 			(click)="handleClick()"
 		  >
 			Sign Up
 		  </button>
+		  <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+			<svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+			<svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+			</button>
 		</div>
 	  </header>
   <!-- <div class="items-stretch bg-white flex flex-col">

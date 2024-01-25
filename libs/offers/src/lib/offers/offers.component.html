@@ -1,20 +1,34 @@
 <div class="offers-list-component flex w-full flex-col pl-16 pr-20 py-12 items-start max-md:max-w-full max-md:px-5" >
 	<h1 class="text-black text-6xl font-bold leading-[67.2px] mt-16 max-md:max-w-full max-md:text-4xl max-md:mt-10" > Find Your Job </h1>
 	<p class="text-black text-lg leading-7 mt-6 mb-16 max-md:max-w-full max-md:mb-10" > Explore a wide range of job opportunities tailored to your abilities. </p>
-	<div class="flex w-full items-center justify-end">
+	<div class="flex w-full items-center gap-4 justify-start">
+		<p-dropdown
+			[options]="sortOptions"
+			[(ngModel)]="selectedSortOption"
+			optionLabel="optionLabel"
+			[showClear]="true"
+			placeholder="Sort by"
+			(onChange)="onSortChange($event)"
+		></p-dropdown>
+
+		<span class="p-input-icon-left" >
+			<i class="pi pi-search"></i>
+			<input type="text" class="p-inputtext-lg p-3 pl-10" pInputText [(ngModel)]="searchInput" placeholder="Search"/>
+		</span>
+
 		<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" [routerLink]="['/offers/add']" routerLinkActive="router-link-active">
 			Add new Job</button>
 	</div>
 	
 	
 	<div class="offers-list-wrapper">
-		<mat-card class="example-card" *ngFor="let offer of jobOffers">
+		<mat-card class="example-card" *ngFor="let offer of filteredOffers">
 			<mat-card-header>
 			  <mat-card-subtitle>{{offer.company}}</mat-card-subtitle>
-			  <mat-card-title>{{offer.jobType}}</mat-card-title>
+			  <mat-card-title>{{offer.title}}</mat-card-title>
 			</mat-card-header>
 			<mat-card-content>
-			  <p>Salary: {{offer.salaryRange.min}} - {{offer.salaryRange.max}} per year</p>
+			  <p>Salary: {{offer.salaryRange.min}},000 - {{offer.salaryRange.max}},000 per year</p>
 			  <p>Location: {{offer.location}}</p>
 			  <mat-chip-set>
 				<mat-chip-row *ngFor="let chip of offer.accessibilityFeatures" color="accent">
@@ -68,6 +82,22 @@
 			  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 			</mat-card-footer>
 		  </mat-card> -->
+		  
+
 	</div>
+	<p-paginator
+	class="pagination"
+	(onPageChange)="onPageChange($event)"
+	[first]="paginationState.first"
+	[rows]="paginationState.rows"
+	[totalRecords]="jobOffers.length"
+	[showCurrentPageReport]="true"
+	[rowsPerPageOptions]="[3, 5, 10, 20]"
+	></p-paginator>
 	
 </div>
+
+<button
+	(click)="createSampleOffers()"
+>Create Sample 10 offers</button> <br />
+<button (click)="clearAllOffers()">Clear All offers</button>

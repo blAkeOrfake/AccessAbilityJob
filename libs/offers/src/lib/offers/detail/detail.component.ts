@@ -5,11 +5,12 @@ import { ActivatedRoute } from '@angular/router';
 import { FeOfferService } from 'apps/client/src/app/services/fe-offer.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { JobOffer } from 'apps/client/src/app/models/job-offer.model';
+import { SharedModule } from 'apps/client/src/app/shared/shared.module';
 
 @Component({
   selector: 'access-ability-job-detail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, SharedModule],
   templateUrl: './detail.component.html',
   styleUrl: './detail.component.scss',
 })
@@ -30,6 +31,8 @@ export class JobDetailComponent implements OnInit {
       this.jobOfferService.getJobOfferById(id as string).subscribe((offer) => {
         this.offer = offer;
       });
+
+      window.scrollTo(0, 0);
     });
   }
 }

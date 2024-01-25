@@ -14,6 +14,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FeOfferService } from '../services/fe-offer.service';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { PaginatorModule } from 'primeng/paginator';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputTextModule } from 'primeng/inputtext';
+
 
 
 
@@ -33,6 +37,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatIconModule,
     MatChipsModule,
     MatSnackBarModule,
+    PaginatorModule,
+    DropdownModule,
+    InputTextModule
   ],
   providers: [ApiService, FeOfferService],
   exports: [
@@ -49,7 +56,10 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatDividerModule,
     HeaderComponent,
     FooterComponent,
-    MatChipsModule
+    MatChipsModule,
+    PaginatorModule,
+    DropdownModule,
+    InputTextModule
   ],
 })
 export class SharedModule {}

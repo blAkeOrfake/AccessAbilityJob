@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { JobOffer } from '../models/job-offer.model';
+import { JobOffer, JobOfferDto } from '../models/job-offer.model';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
 	providedIn: 'root',
@@ -14,7 +14,7 @@ export class FeOfferService {
 
   // Get all job offers
   getAllJobOffers(): Observable<JobOffer[]> {
-    return this.http.get<JobOffer[]>(this.apiUrl);
+    return this.http.get<JobOffer[]>(this.apiUrl).pipe(map((res: JobOfferDto[]) => res.map((offer: JobOfferDto) => new JobOffer(offer))));
   }
 
   // Get a single job offer by ID
@@ -35,5 +35,13 @@ export class FeOfferService {
   // Delete a job offer
   deleteJobOffer(id: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+
+  deleteAllJobOffers(): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/all`);
+  }
+
+  createSampleJobOffers(): Observable<void> {
+    return this.http.post<void>(`${this.apiUrl}/sample`, {});
   }
 }

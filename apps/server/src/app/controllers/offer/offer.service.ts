@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { JobOffer } from './offer.model';
 import { v4 as uuidv4 } from 'uuid';
+import getSampleOffersList from './sampleJobOffers';
 
 
 @Injectable()
@@ -13,6 +14,7 @@ export class OfferService {
       id: uuidv4(),
       ...jobOfferDto
     };
+    jobOffer.postedDate = new Date();
 
     this.jobOffers.push(jobOffer);
     return jobOffer;
@@ -47,6 +49,17 @@ export class OfferService {
     }
 
     this.jobOffers.splice(jobOfferIndex, 1);
+  }
+
+  deleteAllJobOffers(): void {
+    this.jobOffers = [];
+  }
+
+  createSampleJobOffers(): void {
+    const offersToPaste = getSampleOffersList();
+    offersToPaste.forEach(offer => {
+      this.createJobOffer(offer);
+    });
   }
   // This method would typically retrieve data from a database
   // getOffers() {
