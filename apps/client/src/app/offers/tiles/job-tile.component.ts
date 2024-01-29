@@ -1,10 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'access-ability-job-job-tile',
-  standalone: true,
-  imports: [CommonModule],
   templateUrl: './job-tile.component.html',
   styleUrl: './job-tile.component.scss',
 })

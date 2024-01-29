@@ -32,4 +32,14 @@ export class UsersController {
 	remove(@Param('id') id: number) {
 		return this.userService.remove(id);
 	}
+
+	@Post('login')
+	login(@Body() data: {email: string, password: string}) {
+		return this.userService.login(data.email, data.password);
+	}
+
+	@Post('logout')
+	logout() {
+		return this.userService.logout();
+	}
 }

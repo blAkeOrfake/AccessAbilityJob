@@ -1,21 +1,20 @@
 /* eslint-disable @nx/enforce-module-boundaries */
 import { Component, OnInit } from '@angular/core';
 // eslint-disable-next-line @nx/enforce-module-boundaries
-import { SharedModule } from '../../../../../apps/client/src/app/shared/shared.module'
 import { FeOfferService } from 'apps/client/src/app/services/fe-offer.service';
 import { JobOffer } from 'apps/client/src/app/models/job-offer.model';
 import { PaginatorState } from 'primeng/paginator';
 import { DropdownChangeEvent } from 'primeng/dropdown';
+import { FeUserService } from 'apps/client/src/app/services/fe-user.service';
 
 @Component({
   selector: 'access-ability-job-offers',
-  standalone: true,
-  imports: [SharedModule],
   templateUrl: './offers.component.html',
   styleUrl: './offers.component.scss',
 })
 export class OffersComponent implements OnInit {
   
+    public loggedUser$ = this.userService.getLoggedUserAsObs();
     private offers: JobOffer[] = [];
     private _paginationState: PaginatorState = {
       first: 0,
@@ -43,7 +42,8 @@ export class OffersComponent implements OnInit {
     searchInput = '';
 
     constructor(
-      private jobOfferService: FeOfferService
+      private jobOfferService: FeOfferService,
+      private userService: FeUserService
     ) { }
 
     get jobOffers(): JobOffer[] {

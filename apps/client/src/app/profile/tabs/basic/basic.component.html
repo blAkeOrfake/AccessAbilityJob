@@ -1,0 +1,40 @@
+<p>basic works!</p>
+
+<!-- Ability to change remaining user fields -->
+<!-- this.userForm = new FormGroup({
+	firstName: new FormControl(''),
+	lastName: new FormControl(''),
+	email: new FormControl(''),
+	userType: new FormControl(UserTypeEnum.Candidate)
+	})
+} -->
+<div [formGroup]="userForm" class="card p-fluid">
+	<div class="field">
+		<label for="firstName">First Name:</label>
+		<input pInputText type="text" id="firstName" formControlName="firstName" class="p-inputtext p-component p-element">
+	</div>
+	<div class="field">
+		<label for="lastName">Last Name:</label>
+		<input pInputText type="text" id="lastName" formControlName="lastName" class="p-inputtext p-component p-element">
+	</div>
+	<div class="field">
+		<label for="email">Email:</label>
+		<input pInputText type="email" id="email" formControlName="email" class="p-inputtext p-component p-element">
+	</div>
+	<div class="field">
+		<label for="userType">User Type:</label>
+		<p-selectButton [options]="userTypeOptions" formControlName="userType" optionLabel="label" optionValue="value"></p-selectButton>
+
+		<!-- <select id="userType" formControlName="userType">
+			<option value="Candidate">Candidate</option>
+			<option value="Employer">Employer</option>
+		</select> -->
+	</div>
+	
+</div>
+
+<div class="card p-fluid">
+<!-- Ability to add custom files like Cv and others. Used when applicating for a job -->
+</div>
+
+

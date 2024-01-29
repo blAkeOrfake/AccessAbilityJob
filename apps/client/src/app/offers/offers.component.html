@@ -16,7 +16,12 @@
 			<input type="text" class="p-inputtext-lg p-3 pl-10" pInputText [(ngModel)]="searchInput" placeholder="Search"/>
 		</span>
 
-		<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" [routerLink]="['/offers/add']" routerLinkActive="router-link-active">
+		<button
+			*ngIf="loggedUser$ | async"
+			class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+			[routerLink]="['/offers/add']"
+			routerLinkActive="router-link-active"
+		>
 			Add new Job</button>
 	</div>
 	<div class="flex w-full items-center gap-4 justify-start mt-4">

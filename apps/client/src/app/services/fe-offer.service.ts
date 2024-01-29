@@ -10,7 +10,9 @@ export class FeOfferService {
 
 	private apiUrl = 'http://localhost:4200/api/job-offers'; // Replace with your actual API URL
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    console.log('>>> Offer service created <<<');
+  }
 
   // Get all job offers
   getAllJobOffers(): Observable<JobOffer[]> {

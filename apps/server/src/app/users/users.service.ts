@@ -1,10 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { User } from './user.entity';
+import { User, UserTypeEnum } from './user.entity';
 
 @Injectable()
 export class UsersService {
+	private loggedUser: User = null;
+
   constructor(
 	@InjectRepository(User)
 	private usersRepository: Repository<User>,
@@ -22,13 +24,28 @@ export class UsersService {
 		await this.usersRepository.delete(id);
   	}
 
-  	create(user: User): Promise<User> {
-		return this.usersRepository.save(user);
-	}
+create(user: User): Promise<User> {
+	user.userType = UserTypeEnum.Candidate;
+	return this.usersRepository.save(user);
+}
 
-	update(id: number, user: User): Promise<User | null> {
-		const updatedUser = { id, ...user };
-		return this.usersRepository.save(updatedUser);
-	}
+update(id: number, user: User): Promise<User | null> {
+	const updatedUser = { id, ...user };
+	return this.usersRepository.save(updatedUser);
+}
+
+login(email: string, password: string): Promise<User> {
+	const user = this.usersRepository.findOne({ where: { email, password } });
+
+	user.then((onfulfilled) => {
+		this.loggedUser = onfulfilled
+	});
+	return user;
+}
+
+logout(): Promise<void> {
+	delete this.loggedUser;
+	return;
+}
   
 }

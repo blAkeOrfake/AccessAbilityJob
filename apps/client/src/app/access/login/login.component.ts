@@ -1,15 +1,34 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FeUserService } from '../../services/fe-user.service';
 
 @Component({
   selector: 'access-ability-job-login',
-  standalone: true,
-  imports: [CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-  handleButtonClick() {
+
+  loginForm: FormGroup;
+
+  constructor(
+    private userService: FeUserService
+  ) {
+    this.loginForm = new FormGroup({
+      email: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
+    });
+  }
+  loginBtnClick() {
+    console.log('form', this.loginForm.value);
+    this.userService.login(this.loginForm.value);
+
     // event handler logic here
+  }
+
+  signUpBtnClick() {
+    // event handler logic here
+    this.userService.createUser(this.loginForm.value);
+
   }
 }

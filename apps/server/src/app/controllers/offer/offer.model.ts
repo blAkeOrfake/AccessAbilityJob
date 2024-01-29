@@ -12,6 +12,7 @@ export class JobOffer {
     accessibilityFeatures: string[]; // List of accessibility features
     postedDate: Date; // Date when the job offer was posted
     expiryDate: Date; // Date when the job offer expires
+    creatorId: string; // Id of the user who created the job offer
 }
 
 export interface JobOfferDto {
@@ -28,4 +29,5 @@ export interface JobOfferDto {
     accessibilityFeatures: string[];
     postedDate: Date;
     expiryDate: Date;
+    creatorId: string;
 }

@@ -1,16 +1,12 @@
 /* eslint-disable @nx/enforce-module-boundaries */
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { FeOfferService } from 'apps/client/src/app/services/fe-offer.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { JobOffer } from 'apps/client/src/app/models/job-offer.model';
-import { SharedModule } from 'apps/client/src/app/shared/shared.module';
 
 @Component({
   selector: 'access-ability-job-detail',
-  standalone: true,
-  imports: [CommonModule, SharedModule],
   templateUrl: './detail.component.html',
   styleUrl: './detail.component.scss',
 })

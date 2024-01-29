@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FeUserService } from '../../services/fe-user.service';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'access-ability-job-header',
@@ -9,10 +11,46 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   readonly logoSrc = '../../../assets/Logo_png.png';
-  constructor(private router: Router) {
+
+  public loggedUser: User | null = null;
+  public loggedUser$ = this.userService.getLoggedUserAsObs();
+  constructor(
+    private router: Router,
+    private userService: FeUserService
+    ) {
   }
 
   ngOnInit(): void {
+    this.handleDarkMode();
+
+    // this.userService.getLoggedUserAsObs().subscribe(res => {
+    //   console.log('observable got', res);
+    //   this.loggedUser = res;
+    // })
+
+    // setInterval(() => {
+    //   this.loggedUser = this.userService.getLoggedUser();
+
+    //   console.log('currentUser', this.loggedUser);
+    // }, 5000);
+  }
+  
+  handleButtonClick(action: string) {
+    // Handle button click event
+    console.log(action);
+  }
+
+  handleClick(): void {
+    this.router.navigate(['/login']);
+    console.log('click');
+    // Add your event handling logic here
+  }
+
+  logoutBtnClicked(): void {
+    this.userService.logout();
+  }
+
+  handleDarkMode() {
     const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
     const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
     
@@ -53,17 +91,7 @@ export class HeaderComponent implements OnInit {
             }
         }
         
-    });  }
-  
-  handleButtonClick(action: string) {
-    // Handle button click event
-    console.log(action);
-  }
-
-  handleClick(): void {
-    this.router.navigate(['/login']);
-    console.log('click');
-    // Add your event handling logic here
+    });  
   }
 
   

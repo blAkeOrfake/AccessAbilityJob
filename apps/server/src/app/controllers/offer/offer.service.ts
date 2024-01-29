@@ -58,7 +58,7 @@ export class OfferService {
   createSampleJobOffers(): void {
     const offersToPaste = getSampleOffersList();
     offersToPaste.forEach(offer => {
-      this.createJobOffer(offer);
+      this.createJobOffer(offer as unknown as Omit<JobOffer, 'id'>);
     });
   }
   // This method would typically retrieve data from a database

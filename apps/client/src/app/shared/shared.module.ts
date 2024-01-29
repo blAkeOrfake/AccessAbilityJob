@@ -20,15 +20,33 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ChipFiltersComponent } from './chip-filters/chip-filters.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-
-
+import { FeUserService } from '../services/fe-user.service';
+import { LoginComponent } from '../access/login/login.component';
+import { OffersComponent } from '../offers/offers.component';
+import { JobDetailComponent } from '../offers/detail/detail.component';
+import { JobTileComponent } from '../offers/tiles/job-tile.component';
+import { ProfileComponent } from '../profile/profile.component';
+import { TabMenuModule } from 'primeng/tabmenu';
+import { FavOffersComponent } from '../profile/tabs/fav-offers/favOffers.component';
+import { BasicComponent } from '../profile/tabs/basic/basic.component';
+import { ApplicationsComponent } from '../profile/tabs/applications/applications.component';
+import { SelectButtonModule } from 'primeng/selectbutton';
 
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
-    ChipFiltersComponent
+    LoginComponent,
+    ChipFiltersComponent,
+    OffersComponent,
+    JobDetailComponent,
+    JobTileComponent,
+    ProfileComponent,
+    ApplicationsComponent,
+    BasicComponent,
+    FavOffersComponent,
+
   ],
   imports: [
     CommonModule,
@@ -50,8 +68,10 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatFormFieldModule,
     MatAutocompleteModule,
     AsyncPipe,
+    TabMenuModule,
+    SelectButtonModule
   ],
-  providers: [ApiService, FeOfferService],
+  providers: [ApiService, FeOfferService, FeUserService],
   exports: [
     CommonModule,
     RouterModule,
@@ -74,6 +94,12 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatFormFieldModule,
     MatAutocompleteModule,
     AsyncPipe,
+    LoginComponent,
+    TabMenuModule,
+    ApplicationsComponent,
+    BasicComponent,
+    FavOffersComponent,
+    SelectButtonModule
   ],
 })
 export class SharedModule {}

@@ -410,6 +410,7 @@ function getSampleOffersList(): JobOffer[] {
 			      benefits: offer.benefits,
 			      accessibilityFeatures: offer.accessibilityFeatures,
 			      expiryDate: new Date(offer.expiryDate),
+                  creatorId: null
 		    }
 	  });
 	  return offers;
