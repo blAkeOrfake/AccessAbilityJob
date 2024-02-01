@@ -34,6 +34,7 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { FileUploadModule } from 'primeng/fileupload';
 import {TableModule} from 'primeng/table';
 import { FavOffersService } from '../services/favOffers.service';
+import { HomeComponent } from '../home/home.component';
 
 
 
@@ -50,7 +51,7 @@ import { FavOffersService } from '../services/favOffers.service';
     ApplicationsComponent,
     BasicComponent,
     FavOffersComponent,
-
+    HomeComponent
   ],
   imports: [
     CommonModule,

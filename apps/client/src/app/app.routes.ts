@@ -1,5 +1,4 @@
 import { Route } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
 import { LoginComponent } from './access/login/login.component';
 import { AddOfferComponent } from './offers/add-offer/add-offer.component';
 // eslint-disable-next-line @nx/enforce-module-boundaries
@@ -9,11 +8,12 @@ import { ProfileComponent } from './profile/profile.component';
 import { BasicComponent } from './profile/tabs/basic/basic.component';
 import { FavOffersComponent } from './profile/tabs/fav-offers/favOffers.component';
 import { ApplicationsComponent } from './profile/tabs/applications/applications.component';
+import { HomeComponent } from './home/home.component';
 
 export const appRoutes: Route[] = [
 	{
 	  path: '',
-	  component: NxWelcomeComponent,
+	  component: HomeComponent,
 	  pathMatch: 'full',
 	},
 	{

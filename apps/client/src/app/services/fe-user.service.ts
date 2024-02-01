@@ -4,6 +4,7 @@ import { CreateUserDto, IUser, User } from "../models/user.model";
 import { Injectable } from "@angular/core";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { FeOfferService } from "./fe-offer.service";
+import { Router } from "@angular/router";
 
 @Injectable({
 	providedIn: 'root',
@@ -16,7 +17,8 @@ export class FeUserService {
 	constructor(
 		private http: HttpClient,
 		private _snackBar: MatSnackBar,
-		private feOfferService: FeOfferService
+		private feOfferService: FeOfferService,
+		private router: Router
 		) {
 			console.log('>>> User service created <<<');
 		}
@@ -78,6 +80,8 @@ export class FeUserService {
 				this._snackBar.open("User logged successfully", '', { duration: 5000, panelClass: ['snackbar-success'] });
 				this.loggedUser.next(new User(x));
 				localStorage.setItem('user', JSON.stringify(x));
+
+				this.router.navigate(['/profile']);
 
 			} else {
 				this._snackBar.open("User not found", '', { duration: 5000, panelClass: ['snackbar-error'] });
