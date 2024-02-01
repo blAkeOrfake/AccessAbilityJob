@@ -4,3 +4,47 @@
 		border-width: 1px;
 	}
 }
+.upload-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+
+	&__image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+	&__button {
+		margin-top: 1em;
+	}
+}
+.wrapper {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: center;
+	gap: 24px;
+
+	&__left {
+		flex: 2 2 450px;
+	}
+	&__right {
+		flex: 3 0 450px;
+	}
+
+	// .p-tabmenu-nav-content {
+	// 	border-width: 1px !important;
+	// 	border-style: revert-layer !important;
+	// }
+	::ng-deep * {
+		// border-width: 1px !important;
+		// border-style: revert-layer;
+		button {
+			// background-color: #3b82f6;
+			min-width: 46px;
+		}
+	}
+}

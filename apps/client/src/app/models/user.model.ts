@@ -1,3 +1,4 @@
+
 export enum UserTypeEnum {
 	Candidate,
 	Employer,
@@ -5,23 +6,25 @@ export enum UserTypeEnum {
 }
 
 export interface IUser {
-	id: number;
+	id: string;
 	firstName: string;
 	lastName: string;
 	email: string;
 	password: string;
 	userType: UserTypeEnum;
 	isActive: boolean;
+	favOffersIds: string[];
 }
 
 export class User implements IUser {
-	id: number;
+	id: string;
 	firstName: string;
 	lastName: string;
 	email: string;
 	password: string;
 	userType: UserTypeEnum;
 	isActive: boolean;
+	favOffersIds: string[];
 
 	constructor(user: IUser) {
 		this.id = user.id;
@@ -31,6 +34,7 @@ export class User implements IUser {
 		this.password = user.password;
 		this.userType = user.userType;
 		this.isActive = user.isActive;
+		this.favOffersIds = user.favOffersIds || [];
 	}
 }
 

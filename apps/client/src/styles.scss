@@ -8,7 +8,6 @@
 @tailwind components;
 @tailwind utilities;
 @import "primeicons/primeicons.css";
-@import "./preflight.css";
 
 html,
 body {
@@ -18,3 +17,6 @@ body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
+
+
+@import "./preflight.css";

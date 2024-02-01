@@ -28,4 +28,7 @@ export class User {
   @Column({ default: true })
   isActive: boolean;
 
+  @Column('simple-array', {nullable: true})
+  favOffersIds: string[];
+
 }

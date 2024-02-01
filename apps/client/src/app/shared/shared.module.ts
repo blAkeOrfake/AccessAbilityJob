@@ -31,6 +31,10 @@ import { FavOffersComponent } from '../profile/tabs/fav-offers/favOffers.compone
 import { BasicComponent } from '../profile/tabs/basic/basic.component';
 import { ApplicationsComponent } from '../profile/tabs/applications/applications.component';
 import { SelectButtonModule } from 'primeng/selectbutton';
+import { FileUploadModule } from 'primeng/fileupload';
+import {TableModule} from 'primeng/table';
+import { FavOffersService } from '../services/favOffers.service';
+
 
 
 @NgModule({
@@ -69,9 +73,11 @@ import { SelectButtonModule } from 'primeng/selectbutton';
     MatAutocompleteModule,
     AsyncPipe,
     TabMenuModule,
-    SelectButtonModule
+    SelectButtonModule,
+    FileUploadModule,
+    TableModule
   ],
-  providers: [ApiService, FeOfferService, FeUserService],
+  providers: [ApiService, FeOfferService, FeUserService, FavOffersService],
   exports: [
     CommonModule,
     RouterModule,
@@ -99,7 +105,9 @@ import { SelectButtonModule } from 'primeng/selectbutton';
     ApplicationsComponent,
     BasicComponent,
     FavOffersComponent,
-    SelectButtonModule
+    SelectButtonModule,
+    FileUploadModule,
+    TableModule
   ],
 })
 export class SharedModule {}

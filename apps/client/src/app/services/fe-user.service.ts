@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable, map } from "rxjs";
 import { CreateUserDto, IUser, User } from "../models/user.model";
 import { Injectable } from "@angular/core";
 import { MatSnackBar } from "@angular/material/snack-bar";
+import { FeOfferService } from "./fe-offer.service";
 
 @Injectable({
 	providedIn: 'root',
@@ -11,9 +12,11 @@ export class FeUserService {
 
 	private apiUrl = 'http://localhost:4200/api/users'; // Replace with your actual API URL
 
-	private loggedUser: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
-	constructor(private http: HttpClient,
-		private _snackBar: MatSnackBar
+	private loggedUser: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(this.tryToRecoverUserFromStorage());
+	constructor(
+		private http: HttpClient,
+		private _snackBar: MatSnackBar,
+		private feOfferService: FeOfferService
 		) {
 			console.log('>>> User service created <<<');
 		}
@@ -51,6 +54,10 @@ export class FeUserService {
 
 	// Update an existing user
 	updateUser(id: string, user: User): Observable<User> {
+		if (id === this.loggedUser.value?.id) {
+			this.loggedUser.next(user);
+			localStorage.setItem('user', JSON.stringify(user));
+		}
 		return this.http.put<User>(`${this.apiUrl}/${id}`, user);
 	}
 
@@ -70,6 +77,7 @@ export class FeUserService {
 			if (x) {
 				this._snackBar.open("User logged successfully", '', { duration: 5000, panelClass: ['snackbar-success'] });
 				this.loggedUser.next(new User(x));
+				localStorage.setItem('user', JSON.stringify(x));
 
 			} else {
 				this._snackBar.open("User not found", '', { duration: 5000, panelClass: ['snackbar-error'] });
@@ -84,6 +92,7 @@ export class FeUserService {
 		this.http.post<void>(`${this.apiUrl}/logout`, {}).subscribe(() => {
 			this._snackBar.open("User logged out successfully", '', { duration: 5000, panelClass: ['snackbar-success'] });
 			this.loggedUser.next(null);
+			localStorage.removeItem('user');
 		});
 	}
 
@@ -93,5 +102,14 @@ export class FeUserService {
 			this._snackBar.open(altMessage ? altMessage : "User already logged in", '', { duration: 5000, panelClass: ['snackbar-error'] });
 		}
 		return !!this.loggedUser.value;
+	}
+
+
+	private tryToRecoverUserFromStorage(): User | null {
+		const user = localStorage.getItem('user');
+		if (user) {
+			return new User(JSON.parse(user));
+		}
+		return null;
 	}
 }

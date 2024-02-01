@@ -1,4 +1,3 @@
-<p>basic works!</p>
 
 <!-- Ability to change remaining user fields -->
 <!-- this.userForm = new FormGroup({
@@ -8,33 +7,49 @@
 	userType: new FormControl(UserTypeEnum.Candidate)
 	})
 } -->
-<div [formGroup]="userForm" class="card p-fluid">
-	<div class="field">
-		<label for="firstName">First Name:</label>
-		<input pInputText type="text" id="firstName" formControlName="firstName" class="p-inputtext p-component p-element">
-	</div>
-	<div class="field">
-		<label for="lastName">Last Name:</label>
-		<input pInputText type="text" id="lastName" formControlName="lastName" class="p-inputtext p-component p-element">
-	</div>
-	<div class="field">
-		<label for="email">Email:</label>
-		<input pInputText type="email" id="email" formControlName="email" class="p-inputtext p-component p-element">
-	</div>
-	<div class="field">
-		<label for="userType">User Type:</label>
-		<p-selectButton [options]="userTypeOptions" formControlName="userType" optionLabel="label" optionValue="value"></p-selectButton>
+<div class="wrapper">
+	<div [formGroup]="userForm" class="card p-fluid wrapper__left">
+		<div class="field">
+			<label for="firstName">First Name:</label>
+			<input pInputText type="text" id="firstName" formControlName="firstName" class="p-inputtext p-component p-element">
+		</div>
+		<div class="field">
+			<label for="lastName">Last Name:</label>
+			<input pInputText type="text" id="lastName" formControlName="lastName" class="p-inputtext p-component p-element">
+		</div>
+		<div class="field">
+			<label for="email">Email:</label>
+			<input pInputText type="email" id="email" formControlName="email" class="p-inputtext p-component p-element">
+		</div>
+		<div class="field">
+			<label for="userType">User Type:</label>
+			<p-selectButton [options]="userTypeOptions" formControlName="userType" optionLabel="label" optionValue="value"></p-selectButton>
+	
+			<!-- <select id="userType" formControlName="userType">
+				<option value="Candidate">Candidate</option>
+				<option value="Employer">Employer</option>
+			</select> -->
+		</div>
 
-		<!-- <select id="userType" formControlName="userType">
-			<option value="Candidate">Candidate</option>
-			<option value="Employer">Employer</option>
-		</select> -->
+		<button (click)="saveBtnClicked()" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow mt-5">
+			Save
+		  </button>
+	
+		
 	</div>
 	
+	<div class="card p-fluid upload-container wrapper__right">
+		<p> Upload your own files, to use them in your application</p>
+		<p-fileUpload name="demo[]" (onUpload)="onUploadRan($event)" [multiple]="true" accept="image/*" [maxFileSize]="1000000">
+			<ng-template pTemplate="content">
+				<ul *ngIf="uploadedFiles.length">
+					<li *ngFor="let file of uploadedFiles">{{ file.name }} - {{ file.size }} bytes</li>
+				</ul>
+			</ng-template>
+		</p-fileUpload>
+	<!-- Ability to add custom files like Cv and others. Used when applicating for a job -->
+	</div>
+
+	
+	
 </div>
-
-<div class="card p-fluid">
-<!-- Ability to add custom files like Cv and others. Used when applicating for a job -->
-</div>
-
-

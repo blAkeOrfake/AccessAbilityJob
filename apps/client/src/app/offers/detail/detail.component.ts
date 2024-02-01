@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FeOfferService } from 'apps/client/src/app/services/fe-offer.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { JobOffer } from 'apps/client/src/app/models/job-offer.model';
+import { FavOffersService } from '../../services/favOffers.service';
 
 @Component({
   selector: 'access-ability-job-detail',
@@ -16,6 +17,7 @@ export class JobDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private jobOfferService: FeOfferService,
+    private favOffersService: FavOffersService,
     private _snackBar: MatSnackBar
   ) { }
 
@@ -30,5 +32,10 @@ export class JobDetailComponent implements OnInit {
 
       window.scrollTo(0, 0);
     });
+  }
+
+  addOfferToFavourites() {
+    if (!this.offer) return;
+    this.favOffersService.addFavOffer(this.offer.id);
   }
 }

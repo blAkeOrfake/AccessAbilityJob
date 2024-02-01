@@ -6,6 +6,7 @@ import { JobOffer } from 'apps/client/src/app/models/job-offer.model';
 import { PaginatorState } from 'primeng/paginator';
 import { DropdownChangeEvent } from 'primeng/dropdown';
 import { FeUserService } from 'apps/client/src/app/services/fe-user.service';
+import { FavOffersService } from '../services/favOffers.service';
 
 @Component({
   selector: 'access-ability-job-offers',
@@ -40,15 +41,19 @@ export class OffersComponent implements OnInit {
     selectedSortFn: (a: JobOffer, b: JobOffer) => number = () => 0;
 
     searchInput = '';
-
+    
+    userFavOffersIds: string[] = [];
     constructor(
       private jobOfferService: FeOfferService,
-      private userService: FeUserService
+      private userService: FeUserService,
+      private favOffersService: FavOffersService
     ) { }
 
     get jobOffers(): JobOffer[] {
       return this.offers;
     }
+
+    
 
     get filteredOffers(): JobOffer[] {
       const filtered = this.offers.slice(this.paginationState.first, (this.paginationState.first ?? 0) + (this.paginationState.rows ?? 0));
@@ -73,6 +78,7 @@ export class OffersComponent implements OnInit {
   
     ngOnInit(): void {
       this.refreshJobOffers();
+      this.refreshFavoriteJobOffers();
       // get offers from service.
       // start from creating model on backend and frontend one should be the same as backend
       
@@ -86,8 +92,16 @@ export class OffersComponent implements OnInit {
       });
     }
 
+    private refreshFavoriteJobOffers(): void {
+        this.userFavOffersIds = this.favOffersService.getFavOffersIds();
+        console.log('fav offers ids', this.userFavOffersIds);
+    }
+
+    isFavOffer(offerId: string): boolean {
+      return this.userFavOffersIds.includes(offerId);
+    }
+
     onSortChange(ev: DropdownChangeEvent): void {
-      console.log('sortChanged', ev.value);
       this.selectedSortOption = ev.value;
 
       if (!ev.value) return;
@@ -121,8 +135,13 @@ export class OffersComponent implements OnInit {
     }
 
     onPageChange(event: PaginatorState) {
-      console.log(event);
       this._paginationState = event;
 
+    }
+
+    addOfferToFavourites(offer: JobOffer): void {
+      if (!this.loggedUser$) return;
+      this.favOffersService.addFavOffer(offer.id);
+      this.refreshFavoriteJobOffers();
     }
 }
