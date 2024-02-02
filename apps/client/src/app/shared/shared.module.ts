@@ -35,6 +35,8 @@ import { FileUploadModule } from 'primeng/fileupload';
 import {TableModule} from 'primeng/table';
 import { FavOffersService } from '../services/favOffers.service';
 import { HomeComponent } from '../home/home.component';
+import { ApplyJobComponent } from '../apply-job/apply-job.component';
+import { FeJobApplicationService } from '../services/fe-applications.service';
 
 
 
@@ -51,7 +53,8 @@ import { HomeComponent } from '../home/home.component';
     ApplicationsComponent,
     BasicComponent,
     FavOffersComponent,
-    HomeComponent
+    HomeComponent,
+    ApplyJobComponent,
   ],
   imports: [
     CommonModule,
@@ -78,7 +81,7 @@ import { HomeComponent } from '../home/home.component';
     FileUploadModule,
     TableModule
   ],
-  providers: [ApiService, FeOfferService, FeUserService, FavOffersService],
+  providers: [ApiService, FeOfferService, FeUserService, FavOffersService, FeJobApplicationService],
   exports: [
     CommonModule,
     RouterModule,
@@ -108,7 +111,8 @@ import { HomeComponent } from '../home/home.component';
     FavOffersComponent,
     SelectButtonModule,
     FileUploadModule,
-    TableModule
+    TableModule,
+    ApplyJobComponent
   ],
 })
 export class SharedModule {}

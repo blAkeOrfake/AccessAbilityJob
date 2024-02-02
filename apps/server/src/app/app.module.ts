@@ -10,6 +10,8 @@ import { envValidation } from '../environment/env-validator';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TypeOrmConfigService } from './typeorm/typeorm.service';
 import { UsersModule } from './users/users.module';
+import { JobApplicationController } from './controllers/application/application.controller';
+import { JobApplicationService } from './controllers/application/application.service';
 
 @Module({
   imports: [
@@ -24,11 +26,13 @@ import { UsersModule } from './users/users.module';
   ],
   controllers: [
     AppController,
-    OfferController
+    OfferController,
+    JobApplicationController
   ],
   providers: [
     AppService,
-    OfferService
+    OfferService,
+    JobApplicationService
   ],
 })
 export class AppModule {}

@@ -38,4 +38,9 @@ export class JobDetailComponent implements OnInit {
     if (!this.offer) return;
     this.favOffersService.addFavOffer(this.offer.id);
   }
+
+  goToApplyPage() {
+    if (!this.offer) return;
+    window.location.href = `/offers/detail/${this.offer.id}/apply`;
+  }
 }

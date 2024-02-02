@@ -97,6 +97,8 @@ export class FeUserService {
 			this._snackBar.open("User logged out successfully", '', { duration: 5000, panelClass: ['snackbar-success'] });
 			this.loggedUser.next(null);
 			localStorage.removeItem('user');
+
+			this.router.navigate(['/']);
 		});
 	}
 

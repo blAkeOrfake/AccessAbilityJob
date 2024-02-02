@@ -9,6 +9,7 @@ import { BasicComponent } from './profile/tabs/basic/basic.component';
 import { FavOffersComponent } from './profile/tabs/fav-offers/favOffers.component';
 import { ApplicationsComponent } from './profile/tabs/applications/applications.component';
 import { HomeComponent } from './home/home.component';
+import { ApplyJobComponent } from './apply-job/apply-job.component';
 
 export const appRoutes: Route[] = [
 	{
@@ -27,6 +28,10 @@ export const appRoutes: Route[] = [
 	{
 		path: 'offers/detail/:id',
 		component: JobDetailComponent
+	},
+	{
+		path: 'offers/detail/:id/apply',
+		component: ApplyJobComponent
 	},
 	{
 		path: 'offers/add',
