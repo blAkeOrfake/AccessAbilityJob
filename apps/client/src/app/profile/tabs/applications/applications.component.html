@@ -1,15 +1,15 @@
 <div class="card">
-    <p-table responsiveLayout="scroll" [value]="filteredApplications">
-        <ng-template pTemplate="caption">
+	<p-table responsiveLayout="scroll" [value]="filteredApplications">
+		<ng-template pTemplate="caption">
 			<ng-container *ngIf="userType === UserTypeEnum.Employer">
 				Candidates that applied to your job offers
 			</ng-container>
 			<ng-container *ngIf="userType === UserTypeEnum.Candidate">
 				Job offers you've applied to
 			</ng-container>
-        </ng-template>
-        <ng-template pTemplate="header">
-            <tr>
+		</ng-template>
+		<ng-template pTemplate="header">
+			<tr>
 				<ng-container *ngIf="userType === UserTypeEnum.Employer">
 					<th>First Name</th>
 					<th>Last Name</th>
@@ -17,41 +17,61 @@
 				<ng-container *ngIf="userType === UserTypeEnum.Candidate">
 					<th>Company</th>
 				</ng-container>
-                <th>Email</th>
-                <th>Phone Number</th>
-                <th>Applied Position</th>
-                <th>Start Date</th>
-                <th>Interview Date</th>
-                <th>Status</th>
-                <th>Action</th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-jobApplication>
-            <tr>
+				<th>Email</th>
+				<th>Phone Number</th>
+				<th>Applied Position</th>
+				<th>Start Date</th>
+				<th>Interview Date</th>
+				<th>Status</th>
+				<th>Action</th>
+			</tr>
+		</ng-template>
+		<ng-template pTemplate="body" let-jobApplication>
+			<tr>
 				<ng-container *ngIf="userType === UserTypeEnum.Employer">
-					<td>{{jobApplication.firstName}}</td>
-					<td>{{jobApplication.lastName}}</td>
+					<td>{{ jobApplication.firstName }}</td>
+					<td>{{ jobApplication.lastName }}</td>
 				</ng-container>
 				<ng-container *ngIf="userType === UserTypeEnum.Candidate">
-                	<td>{{jobApplication.company}}</td>
+					<td>{{ jobApplication.company }}</td>
 				</ng-container>
-                <td>{{jobApplication.email}}</td>
-                <td>{{jobApplication.phoneNumber}}</td>
-                <td>{{jobApplication.appliedPosition}}</td>
-                <td>{{jobApplication.startDate | date:'mediumDate'}}</td>
-                <td>{{jobApplication.interviewDate | date:'mediumDate'}}</td>
-                <td>{{jobApplication.status}}</td>
-                <td>
+				<td>{{ jobApplication.email }}</td>
+				<td>{{ jobApplication.phoneNumber }}</td>
+				<td>{{ jobApplication.appliedPosition }}</td>
+				<td>{{ jobApplication.startDate | date : "mediumDate" }}</td>
+				<td>
+					{{ jobApplication.interviewDate | date : "mediumDate" }}
+				</td>
+				<td>{{ jobApplication.status }}</td>
+				<td>
 					<ng-container *ngIf="userType === UserTypeEnum.Candidate">
-						<button mat-button (click)="cancelApplication(jobApplication.id)" color="warn">Cancel</button>
+						<button
+							mat-button
+							(click)="cancelApplication(jobApplication.id)"
+							color="warn"
+						>
+							Cancel
+						</button>
 					</ng-container>
-                    
+
 					<ng-container *ngIf="userType === UserTypeEnum.Employer">
-						<button mat-button (click)="acceptApplication(jobApplication)" color="primary">Accept</button>
-						<button mat-button (click)="denyApplication(jobApplication)" color="secondary">Deny</button>
+						<button
+							mat-button
+							(click)="acceptApplication(jobApplication)"
+							color="primary"
+						>
+							Accept
+						</button>
+						<button
+							mat-button
+							(click)="denyApplication(jobApplication)"
+							color="secondary"
+						>
+							Deny
+						</button>
 					</ng-container>
-                </td>
-            </tr>
-        </ng-template>
-    </p-table>
+				</td>
+			</tr>
+		</ng-template>
+	</p-table>
 </div>

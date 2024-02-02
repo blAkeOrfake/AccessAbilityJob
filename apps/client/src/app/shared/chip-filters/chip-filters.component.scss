@@ -1,9 +1,9 @@
 .example-chip-list {
 	width: 400px;
-  }
+}
 
-  ::ng-deep {
+::ng-deep {
 	.mdc-text-field--filled:not(.mdc-text-field--disabled) {
-		background-color: #FEFEFE !important;
-	  }
-  }
+		background-color: #fefefe !important;
+	}
+}

@@ -1,63 +1,62 @@
-<header class="justify-center bg-black bg-opacity-30 flex w-full flex-col pl-20 pr-4 pt-4 pb-12 items-end max-md:max-w-full max-md:pl-5">
+<header
+	class="justify-center bg-black bg-opacity-30 flex w-full flex-col pl-20 pr-4 pt-4 pb-12 items-end max-md:max-w-full max-md:pl-5"
+>
+	<div
+		[formGroup]="loginForm"
+		class="items-center bg-white self-center flex w-full max-w-[1088px] flex-col mt-4 mb-3.5 px-20 py-12 max-md:max-w-full max-md:px-5"
+	>
+		<div
+			class="self-stretch text-black text-center text-5xl font-bold leading-[57.6px] mt-3.5 mx-3 max-md:max-w-full max-md:text-4xl max-md:mr-2.5"
+		>
+			Log In / Signup
+		</div>
+		<div
+			class="self-stretch text-black text-center text-lg leading-7 mt-4 mx-3 max-md:max-w-full max-md:mr-2.5"
+		>
+			Explore the job requirements and qualifications
+		</div>
+		<div
+			class="text-black text-base leading-6 mt-12 mx-5 max-md:max-w-full max-md:mr-2.5 max-md:mt-10"
+		>
+			<label for="email" aria-label="Email">Email</label>
+			<input
+				type="text"
+				id="email"
+				class="text-neutral-600 text-base leading-6 items-stretch self-stretch border bg-white justify-center mt-2 mx-3 p-3 border-solid border-black max-md:max-w-full max-md:mr-1"
+				placeholder="Placeholder"
+				aria-role="input"
+				formControlName="email"
+			/>
+		</div>
+		<div
+			class="text-black text-base leading-6 mt-6 max-md:max-w-full mr-7 max-md:mr-2.5"
+		>
+			<label for="password" aria-label="Password">Password</label>
+			<input
+				type="password"
+				id="password"
+				class="text-neutral-600 text-base leading-6 items-stretch self-stretch border bg-white justify-center mt-2 mx-3 p-3 border-solid border-black max-md:max-w-full max-md:mr-2.5"
+				placeholder="Placeholder"
+				aria-role="input"
+				formControlName="password"
+			/>
+		</div>
 
-	<div  [formGroup]="loginForm" class="items-center bg-white self-center flex w-full max-w-[1088px] flex-col mt-4 mb-3.5 px-20 py-12 max-md:max-w-full max-md:px-5">
-	  <div class="self-stretch text-black text-center text-5xl font-bold leading-[57.6px] mt-3.5 mx-3 max-md:max-w-full max-md:text-4xl max-md:mr-2.5">
-		Log In / Signup
-	  </div>
-	  <div class="self-stretch text-black text-center text-lg leading-7 mt-4 mx-3 max-md:max-w-full max-md:mr-2.5">
-		Explore the job requirements and qualifications
-	  </div>
-	  <div class="text-black text-base leading-6 mt-12 mx-5 max-md:max-w-full max-md:mr-2.5 max-md:mt-10">
-		<label for="email" aria-label="Email">Email</label>
-		<input
-		  type="text"
-		  id="email"
-		  class="text-neutral-600 text-base leading-6 items-stretch self-stretch border bg-white justify-center mt-2 mx-3 p-3 border-solid border-black max-md:max-w-full max-md:mr-1"
-		  placeholder="Placeholder"
-		  aria-role="input"
-		  formControlName="email"
-		/>
-	  </div>
-	  <div class="text-black text-base leading-6 mt-6 max-md:max-w-full mr-7 max-md:mr-2.5">
-		<label for="password" aria-label="Password">Password</label>
-		<input
-		  type="password"
-		  id="password"
-		  class="text-neutral-600 text-base leading-6 items-stretch self-stretch border bg-white justify-center mt-2 mx-3 p-3 border-solid border-black max-md:max-w-full max-md:mr-2.5"
-		  placeholder="Placeholder"
-		  aria-role="input"
-		  formControlName="password"
-
-		/>
-	  </div>
-	  <!-- <div class="self-stretch text-black text-base leading-6 mt-6 mx-3 max-md:max-w-full max-md:mr-2.5">
-		Message
-	  </div>
-	  <div class="text-neutral-600 text-base leading-6 items-stretch self-stretch border bg-white mt-2 mx-3 pt-3 pb-28 px-3 border-solid border-black max-md:max-w-full max-md:mr-2.5 max-md:pb-10">
-		Type your message...
-	  </div> -->
-	  <!-- <div class="self-stretch flex justify-between gap-2 mt-6 mx-3 pr-20 pb-3.5 items-start max-md:max-w-full max-md:flex-wrap max-md:mr-2.5 max-md:pr-5">
 		<button
-		  type="button"
-		  class="border bg-white flex w-[18px] shrink-0 h-[18px] flex-col border-solid border-black"
-		></button>
-		<div class="text-black text-base leading-6">Checkbox</div>
-	  </div> -->
-	  <button
-		type="button"
-		class="text-white text-base leading-6 justify-center items-stretch border bg-black self-center mt-6 mb-3.5 px-7 py-3 border-solid border-black max-md:px-5"
-		(click)="loginBtnClick()"
-		aria-label="Log in"
-	  >
-		Login
-	  </button>
-	  <button
-		type="button"
-		class="text-black text-base leading-6 justify-center items-stretch border bg-white self-center mt-6 mb-3.5 px-7 py-3 border-solid border-white max-md:px-5"
-		(click)="signUpBtnClick()"
-		aria-label="Sign up"
-	  >
-		No account yet? Sign up
-	  </button>
+			type="button"
+			class="text-white text-base leading-6 justify-center items-stretch border bg-black self-center mt-6 mb-3.5 px-7 py-3 border-solid border-black max-md:px-5"
+			(click)="loginBtnClick()"
+			aria-label="Log in"
+		>
+			Login
+		</button>
+		<button
+			type="button"
+			class="text-black text-base leading-6 justify-center items-stretch border bg-white self-center mt-6 mb-3.5 px-7 py-3 border-solid border-white max-md:px-5"
+			(click)="signUpBtnClick()"
+			aria-label="Sign up"
+		>
+			No account yet? Sign up
+		</button>
 	</div>
-  </header>
+</header>

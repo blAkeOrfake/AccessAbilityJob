@@ -1,33 +1,42 @@
 <div class="card">
-    <p-table responsiveLayout="scroll" [value]="filteredOffers">
-        <ng-template pTemplate="caption">
-            Job Offers that you liked
-        </ng-template>
-        <ng-template pTemplate="header">
-            <tr>
-                <th>Title</th>
-                <th>Company</th>
-                <th>Location</th>
-                <th>Salary Range</th>
-                <th>Job Type</th>
-                <th>Posted Date</th>
-                <th>Expiry Date</th>
+	<p-table responsiveLayout="scroll" [value]="filteredOffers">
+		<ng-template pTemplate="caption">
+			Job Offers that you liked
+		</ng-template>
+		<ng-template pTemplate="header">
+			<tr>
+				<th>Title</th>
+				<th>Company</th>
+				<th>Location</th>
+				<th>Salary Range</th>
+				<th>Job Type</th>
+				<th>Posted Date</th>
+				<th>Expiry Date</th>
 				<th>Action</th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-jobOffer>
-            <tr>
-                <td>{{jobOffer.title}}</td>
-                <td>{{jobOffer.company}}</td>
-                <td>{{jobOffer.location}}</td>
-                <td>{{jobOffer.salaryRange.min | currency:'USD'}} - {{jobOffer.salaryRange.max | currency:'USD'}}</td>
-                <td>{{jobOffer.jobType}}</td>
-                <td>{{jobOffer.postedDate | date:'mediumDate'}}</td>
-                <td>{{jobOffer.expiryDate | date:'mediumDate'}}</td>
+			</tr>
+		</ng-template>
+		<ng-template pTemplate="body" let-jobOffer>
+			<tr>
+				<td>{{ jobOffer.title }}</td>
+				<td>{{ jobOffer.company }}</td>
+				<td>{{ jobOffer.location }}</td>
 				<td>
-					<button mat-button (click)="removeOfferFromFavourites(jobOffer.id)" color="accent">Remove</button>
+					{{ jobOffer.salaryRange.min | currency : "USD" }} -
+					{{ jobOffer.salaryRange.max | currency : "USD" }}
 				</td>
-            </tr>
-        </ng-template>
-    </p-table>
+				<td>{{ jobOffer.jobType }}</td>
+				<td>{{ jobOffer.postedDate | date : "mediumDate" }}</td>
+				<td>{{ jobOffer.expiryDate | date : "mediumDate" }}</td>
+				<td>
+					<button
+						mat-button
+						(click)="removeOfferFromFavourites(jobOffer.id)"
+						color="accent"
+					>
+						Remove
+					</button>
+				</td>
+			</tr>
+		</ng-template>
+	</p-table>
 </div>

@@ -1,142 +1,251 @@
-<header class="justify-center bg-black bg-opacity-10 flex w-full flex-col pl-20 pr-20 pt-8 pb-8 max-md:max-w-full max-md:pl-5">
+<header
+	class="justify-center bg-black bg-opacity-10 flex w-full flex-col pl-20 pr-20 pt-8 pb-8 max-md:max-w-full max-md:pl-5"
+>
 	<form [formGroup]="jobOfferForm" class="space-y-4">
-
 		<!-- Job Title -->
 		<div class="mb-4">
-		  <label class="block text-gray-700 text-sm font-bold mb-2" for="title">
-			Title
-		  </label>
-		  <input formControlName="title" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight" id="title" type="text" placeholder="Job Title">
+			<label
+				class="block text-gray-700 text-sm font-bold mb-2"
+				for="title"
+			>
+				Title
+			</label>
+			<input
+				formControlName="title"
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight"
+				id="title"
+				type="text"
+				placeholder="Job Title"
+			/>
 		</div>
-	  
+
 		<!-- Company -->
 		<div class="mb-4">
-		  <label class="block text-gray-700 text-sm font-bold mb-2" for="company">
-			Company
-		  </label>
-		  <input formControlName="company" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight" id="company" type="text" placeholder="Company Name">
+			<label
+				class="block text-gray-700 text-sm font-bold mb-2"
+				for="company"
+			>
+				Company
+			</label>
+			<input
+				formControlName="company"
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight"
+				id="company"
+				type="text"
+				placeholder="Company Name"
+			/>
 		</div>
-	  
+
 		<!-- Location -->
 		<div class="mb-4">
-		  <label class="block text-gray-700 text-sm font-bold mb-2" for="location">
-			Location
-		  </label>
-		  <input formControlName="location" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight" id="location" type="text" placeholder="Location">
+			<label
+				class="block text-gray-700 text-sm font-bold mb-2"
+				for="location"
+			>
+				Location
+			</label>
+			<input
+				formControlName="location"
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight"
+				id="location"
+				type="text"
+				placeholder="Location"
+			/>
 		</div>
-	  
+
 		<!-- Salary Range -->
 		<div formGroupName="salaryRange" class="mb-4">
-		  <label class="block text-gray-700 text-sm font-bold mb-2">
-			Salary Range
-		  </label>
-		  <div class="flex space-x-2">
-			<input formControlName="min" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight" type="number" placeholder="Min Salary">
-			<input formControlName="max" class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight" type="number" placeholder="Max Salary">
-		  </div>
+			<label class="block text-gray-700 text-sm font-bold mb-2">
+				Salary Range
+			</label>
+			<div class="flex space-x-2">
+				<input
+					formControlName="min"
+					class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight"
+					type="number"
+					placeholder="Min Salary"
+				/>
+				<input
+					formControlName="max"
+					class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight"
+					type="number"
+					placeholder="Max Salary"
+				/>
+			</div>
 		</div>
-	  
+
 		<!-- Job Type -->
 		<div class="mb-4">
-		  <label class="block text-gray-700 text-sm font-bold mb-2" for="jobType">
-			Job Type
-		  </label>
-		  <input formControlName="jobType" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight" id="jobType" type="text" placeholder="Full-time, Part-time, etc.">
+			<label
+				class="block text-gray-700 text-sm font-bold mb-2"
+				for="jobType"
+			>
+				Job Type
+			</label>
+			<input
+				formControlName="jobType"
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight"
+				id="jobType"
+				type="text"
+				placeholder="Full-time, Part-time, etc."
+			/>
 		</div>
-	  
+
 		<!-- Description -->
 		<div class="mb-4">
-		  <label class="block text-gray-700 text-sm font-bold mb-2" for="description">
-			Description
-		  </label>
-		  <textarea formControlName="description" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight" id="description" placeholder="Job Description"></textarea>
+			<label
+				class="block text-gray-700 text-sm font-bold mb-2"
+				for="description"
+			>
+				Description
+			</label>
+			<textarea
+				formControlName="description"
+				class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight"
+				id="description"
+				placeholder="Job Description"
+			></textarea>
 		</div>
 
 		<div class="mb-4">
 			<label for="expiryDate">Expiry Date</label>
-			<input type="date" id="expiryDate" formControlName="expiryDate" class="border p-2">
-		  </div>
+			<input
+				type="date"
+				id="expiryDate"
+				formControlName="expiryDate"
+				class="border p-2"
+			/>
+		</div>
 
 		<div formArrayName="requirements" class="mb-4">
 			<label class="block text-gray-700 text-sm font-bold mb-2">
-			  Requirements
+				Requirements
 			</label>
-			<div *ngFor="let requirement of requirementsArray.controls; let i = index" class="flex mb-2 gap-4">
-			  <input [formControlName]="i" class="shadow border rounded w-full py-2 px-3 text-gray-700" placeholder="Requirement">
-			  <button (click)="removeRequirement(i)" class="text-red-500"><i class="fas fa-trash"></i>
-			  </button>
+			<div
+				*ngFor="
+					let requirement of requirementsArray.controls;
+					let i = index
+				"
+				class="flex mb-2 gap-4"
+			>
+				<input
+					[formControlName]="i"
+					class="shadow border rounded w-full py-2 px-3 text-gray-700"
+					placeholder="Requirement"
+				/>
+				<button (click)="removeRequirement(i)" class="text-red-500">
+					<i class="fas fa-trash"></i>
+				</button>
 			</div>
-			<button (click)="addRequirement()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">Add Requirement</button>
-		  </div>
-		
-		  <!-- Responsibilities -->
-		  <div formArrayName="responsibilities" class="mb-4">
+			<button
+				(click)="addRequirement()"
+				class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"
+			>
+				Add Requirement
+			</button>
+		</div>
+
+		<!-- Responsibilities -->
+		<div formArrayName="responsibilities" class="mb-4">
 			<label class="block text-gray-700 text-sm font-bold mb-2">
-			  Responsibilities
+				Responsibilities
 			</label>
-			<div *ngFor="let responsibility of responsibilitiesArray.controls; let i = index" class="flex mb-2 gap-4">
-			  <input [formControlName]="i" class="shadow border rounded w-full py-2 px-3 text-gray-700" placeholder="Responsibility">
-			  <button (click)="removeResponsibility(i)" class="text-red-500"><i class="fas fa-trash"></i></button>
+			<div
+				*ngFor="
+					let responsibility of responsibilitiesArray.controls;
+					let i = index
+				"
+				class="flex mb-2 gap-4"
+			>
+				<input
+					[formControlName]="i"
+					class="shadow border rounded w-full py-2 px-3 text-gray-700"
+					placeholder="Responsibility"
+				/>
+				<button (click)="removeResponsibility(i)" class="text-red-500">
+					<i class="fas fa-trash"></i>
+				</button>
 			</div>
-			<button (click)="addResponsibility()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">Add Responsibility</button>
-		  </div>
-		
-		  <!-- Benefits -->
-		  <div formArrayName="benefits" class="mb-4">
+			<button
+				(click)="addResponsibility()"
+				class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"
+			>
+				Add Responsibility
+			</button>
+		</div>
+
+		<!-- Benefits -->
+		<div formArrayName="benefits" class="mb-4">
 			<label class="block text-gray-700 text-sm font-bold mb-2">
-			  Benefits
+				Benefits
 			</label>
-			<div *ngFor="let benefit of benefitsArray.controls; let i = index" class="flex mb-2 gap-4">
-			  <input [formControlName]="i" class="shadow border rounded w-full py-2 px-3 text-gray-700" placeholder="Benefit">
-			  <button (click)="removeBenefit(i)" class="text-red-500"><i class="fas fa-trash"></i></button>
+			<div
+				*ngFor="let benefit of benefitsArray.controls; let i = index"
+				class="flex mb-2 gap-4"
+			>
+				<input
+					[formControlName]="i"
+					class="shadow border rounded w-full py-2 px-3 text-gray-700"
+					placeholder="Benefit"
+				/>
+				<button (click)="removeBenefit(i)" class="text-red-500">
+					<i class="fas fa-trash"></i>
+				</button>
 			</div>
-			<button (click)="addBenefit()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">Add Benefit</button>
-		  </div>
-		
-		  <!-- Accessibility Features -->
-		  <div formArrayName="accessibilityFeatures" class="mb-4">
+			<button
+				(click)="addBenefit()"
+				class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"
+			>
+				Add Benefit
+			</button>
+		</div>
+
+		<!-- Accessibility Features -->
+		<div formArrayName="accessibilityFeatures" class="mb-4">
 			<label class="block text-gray-700 text-sm font-bold mb-2">
-			  Accessibility Features
+				Accessibility Features
 			</label>
-			<div *ngFor="let feature of accessibilityFeaturesArray.controls; let i = index" class="flex mb-2 gap-4">
-			  <input [formControlName]="i" class="shadow border rounded w-full py-2 px-3 text-gray-700" placeholder="Accessibility Feature">
-			  <button (click)="removeAccessibilityFeature(i)" class="text-red-500"><i class="fas fa-trash"></i></button>
+			<div
+				*ngFor="
+					let feature of accessibilityFeaturesArray.controls;
+					let i = index
+				"
+				class="flex mb-2 gap-4"
+			>
+				<input
+					[formControlName]="i"
+					class="shadow border rounded w-full py-2 px-3 text-gray-700"
+					placeholder="Accessibility Feature"
+				/>
+				<button
+					(click)="removeAccessibilityFeature(i)"
+					class="text-red-500"
+				>
+					<i class="fas fa-trash"></i>
+				</button>
 			</div>
-			<button (click)="addAccessibilityFeature()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded">Add Feature</button>
-		  </div>
-	  
+			<button
+				(click)="addAccessibilityFeature()"
+				class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"
+			>
+				Add Feature
+			</button>
+		</div>
+
 		<!-- Submit Button -->
 		<div class="flex items-center justify-end">
-		  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="onSubmit()">
-			Submit
-		  </button>
+			<button
+				class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+				(click)="onSubmit()"
+			>
+				Submit
+			</button>
 		</div>
-	  </form>
-	<!-- <form [formGroup]="jobOfferForm" (ngSubmit)="submitForm()" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-		<div class="mb-4">
-			<label class="block text-gray-700 text-sm font-bold mb-2" for="title">Title:</label>
-			<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" id="title" formControlName="title" required>
-		</div>
-		
-		<div class="mb-4">
-			<label class="block text-gray-700 text-sm font-bold mb-2" for="description">Description:</label>
-			<textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="description" formControlName="description" required></textarea>
-		</div>
-		
-		<div class="mb-4">
-			<label class="block text-gray-700 text-sm font-bold mb-2" for="location">Location:</label>
-			<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" id="location" formControlName="location" required>
-		</div>
-		
-		<div class="mb-4">
-			<label class="block text-gray-700 text-sm font-bold mb-2" for="salary">Salary:</label>
-			<input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" id="salary" formControlName="salary" required>
-		</div>
-		
-		<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Create Job Offer</button>
 	</form>
-	 -->
 </header>
-<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="fillWithRandomData()">
+<button
+	class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+	(click)="fillWithRandomData()"
+>
 	Fill with random data
-  </button>
+</button>
